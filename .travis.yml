@@ -4,19 +4,24 @@ dist: trusty
 node_js: stable
 before_script:
 - npm install --silent bower polymer-cli
-- ./node_modules/.bin/bower install --silent
+- "./node_modules/.bin/bower install --silent"
 addons:
   sauce_connect: true
 script:
 - npm run lint
-- ./node_modules/.bin/polymer test --plugin sauce --job-name "anypoint-validator-behavior:${TRAVIS_BRANCH}" --build-number=${TRAVIS_BUILD_NUMBER}
+- ./node_modules/.bin/polymer test --plugin sauce --job-name "anypoint-validator-behavior:${TRAVIS_BRANCH}"
+  --build-number=${TRAVIS_BUILD_NUMBER}
 cache:
   directories:
   - bower_components
   - node_modules
 branches:
   only:
-    - stage
-    - develop
+  - stage
+  - develop
 after_success:
-  - node tasks/ci.js
+- node tasks/ci.js
+env:
+  global:
+  - secure: p2N+6vbHFxzJY5EogQNRZkp/MFszN9glerxRcS5BOoEOUAtMJIEVili3+KjVbQKbvNf1yE5vdAJdBIIUCyaTvBUL1QDkWLfRjIQhLpt+TIIl5AvIo0vGQ9LiKQnRZGnz5apbVfYgHh+yyUJd+9QJ/7eyAjQoCxicKYxqOHSxqh8JPtzdCF4Th4q/jvOpXcJ/4FFnPIqa/bDUsIl6t4pOsaEu9394+qICOWaZLHhNEW/jZphbhPZ5YQJhyFnEYsOGD37lKzaMHGq7YD2A3m05XQYoDMvQaJmgKvvAFgrNuGNbdia2M2f5xnSM6RTzCkTqYcGV8Ii7s0dKsEqqVuyx+hnjHOM0oFYa8bY0hqytI78rbgCrdMOQS4RvTod4NLq4jBvB3GB/DiMe6dm0tVpqvUo823aDFB/aAWjwByAcyYx5S+OJtiIOzIZuCGsX/ACFHLrcDuelaFzwZBMeJsyZribjmdBxTDqXlDWXhLg/sdvuRwuULy8uLPYA22SwD9xDWDArl4Xcv0mK2/rVXVCCmK27ashfnfgfmkf+SuZRO8JVDYRUh+JId91dNBBulJaHBkppxHEtS1a3ZpwMBPEbsaGSE2eHZqR4yJqG3N8VA/xuoj3egkBxoCcgmMF2y/WIjuMT6+YfdhKo+p3wquc3UpiQk4JFa7N7OETsNLM5dz4=
+  - secure: sQLIH7Rgao5xGMPrFxQiAkCGN7Y0trLnoqNBr/MGPucfHh+VVzEjnuCsePvXVnekRvH8DoNl7dYQd3CQ/suWJXin8kvMtpeoSx7A6LsjKqgb4wukJuW6HAQYOJ48RppraTip82KuG5DaB63a5HuaFalCm3aWmwYnuDX1rM8ByvJEC6C/DwWn6+riZG3lsUXXBdWjM8rZFl6lePRPY6u2UYio1FoWP4c7Lh0Pce+NVmwEof48/51mhmhhxFgbBY0UGyyzGrN8I3XcimYc93fGJqYGPpkSwfFFNecnzpRg2l2DrPfqoYNmZ2ahzEDRviTmiAcCe8VluZPGeMnmmtylBC4X9L5IL3E6/27FNjOXBmdhptSG2eZ7hk3IAV+4SAPpqIyr2hUal98B5aaUk70GUXJHfoP0OXkdokgzhqa0TSpdQ6AJoAM/5+6L4rM3l45YRlgAvaxWgXUpOwbdd1RAJhftdOhJQtolzwkZoZPRz4WxVI+3LgXAWnMxrMV86P2pBsN1h2ryMABJK5uVamLN/P44D/Aic+1iBALZjkKrso/4L4l/StiPCPwg16qTtrr8lJNHfecKtFyEBfOasPPrFJcCP2Qip6HWxgdI46tGhV+6Hcl79JJ/tiXEc9NXJ3oSsbYiuEBKt6GdSoSFZ8x3U5bmDL/+BALv0u1T2/sVuwI=
