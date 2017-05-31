@@ -1,7 +1,7 @@
 {
   "name": "anypoint-validator-behavior",
-  "version": "0.1.2",
-  "license": "Apache-2.0 OR CC-BY-4.0",
+  "version": "0.1.3",
+  "license": "All rights reserved to Mulesoft Inc.",
   "description": "Implements a custom input or form validator for the Anypoint components",
   "devDependencies": {
     "polymer-cli": "^0.16.0"
